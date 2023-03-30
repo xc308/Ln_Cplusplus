@@ -195,25 +195,87 @@ sourceCpp("string.cpp")
 
 
 
+#-----------
+# Constants 
+#-----------
+
+# Constants are expressions with a fixed value.
+
+### Literals ##
+  # used to express particular values within the source code of a program
+  # used to give specific values to variables or to express messages
+
+  # can be classified into: 
+   # integer, floating-point, characters, strings, Boolean, pointers, and user-defined literals.
+
+  # By default, integer literals are of type int
+
+  # certain suffixes be appended to an integer literal to specify a different integer type:
+    # u or U	unsigned
+    # l or L	long
+    # ll or LL	long long
+
+  # Unsigned may be combined with any of the other two in any order to form unsigned long or unsigned long long.
 
 
+  # 75         // int
+  # 75u        // unsigned int
+  # 75l        // long
+  # 75ul       // unsigned long 
+  # 75lu       // unsigned long
+  
+  #  the suffix can be specified using either upper or lowercase letters.
 
 
+# Floating Point Numerals
+    # express real values, with decimals and/or exponents
+    # an include either a decimal point, an e character 
+    # or both a decimal point and an e character:
+      # 3.14159    // 3.14159
+      # 6.02e23    // 6.02 x 10^23
+      # 1.6e-19    // 1.6 x 10^-19
+      # 3.0        // 3.0  
+
+    # The default type for floating-point literals is double
+    # Floating-point literals of type float or long double can be specified by adding one of the following suffixes:
+      # f or F	float
+      # l or L	long double
+
+    # 3.14159L   // long double
+    # 6.02e23f   // float 
 
 
+## Character and string literals:
+
+  # Character and string literals are enclosed in quotes: 
+  # 'z'  //single-character literals, single quotes
+  #  'p'
+  #  "Hello world"  //string literals, double quotes
+
+  #  can also represent special characters:
+    # \n	newline
+    # \r	carriage return
+    # \t	tab
+    # \v	vertical tab
+    # \b	backspace
+    # \f	form feed (page feed)
+    # \a	alert (beep)
+    # \'	single quote (')
+    # \"	double quote (")
+    # \?	question mark (?)
+    # \\	backslash (\)
 
 
+  # All the character literals and string literals described above are made of characters of type char
+  # 
 
+# Other literals:
+  # true and false are the two possible values for variables of type bool.
+  # nullptr is the null pointer value.
 
-
-
-
-
-
-
-
-
-
+  # bool foo = true;
+  # bool bar = false;
+  # int* p = nullptr;
 
 
 
