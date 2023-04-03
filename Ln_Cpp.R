@@ -279,6 +279,40 @@ sourceCpp("string.cpp")
 
 
 
+#============================
+# Typed constant expressions
+#============================
+
+# t is just convenient to give a name to a constant value:
+
+library(Rcpp)
+sourceCpp("name_constant_values.cpp")
+
+sourceCpp("name_const.cpp")
+
+#====================================
+# Preprocessor definitions (#define)
+#====================================
+
+# Another mechanism to name constant values is the use of preprocessor definitions
+
+# they have the form: #define identifier replacement
+              # e.g.  #define PI 3.14159
+                      #define NEWLINE '\n'
+
+# After this directive, 
+  # any occurrence of identifier in the code is interpreted as replacement, 
+  # where replacement is any sequence of characters (until the end of the line). 
+  # This replacement is performed by the preprocessor, 
+  # and happens before the program is compiled, 
+  # thus causing a sort of blind replacement: 
+  # the validity of the types or syntax involved is not checked in any way
+
+
+
+
+
+
 
 
 
