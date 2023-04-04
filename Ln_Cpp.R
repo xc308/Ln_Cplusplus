@@ -310,6 +310,34 @@ sourceCpp("name_const.cpp")
 
 
 
+#===========
+# Operators
+#===========
+
+# operate with variables and constant by using operators.
+  
+# Assignment operator (=)
+  # x = y
+  # assing the value of y to variable x
+
+  # when the value of y changed later
+    # it does not affect y
+
+library("Rcpp")
+sourceCpp("assign_operator.cpp")
+  # notice final a was NOT affected by the change of b at last step
+  # even a = b earlier
+
+
+# Compound assignment
+  #  modify the current value of a variable by performing an operation on it.
+  # y += x : y = y + x
+  # y -= x : y = y - x
+  # x /= y : x = x / y
+  # price *= (unit + 1) : price = price * (unit + 1)
+
+sourceCpp("compound_operator.cpp")
+
 
 
 
