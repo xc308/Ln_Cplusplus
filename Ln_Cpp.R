@@ -340,6 +340,44 @@ sourceCpp("compound_operator.cpp")
 
 
 
+#=================================
+# Increment and decrement (++, --)
+#=================================
+
+#  the increase operator (++) and the decrease operator (--) 
+  # increase or reduce by one the value stored in a variable. 
+  # They are equivalent to +=1 and to -=1,
+
+
+# ++x 
+# x+=1
+# x = x+1
+
+# can be used both as a prefix and as a suffix
+  # before the variable name (++x) or after it (x++).
+  # in simple expressions like x++ or ++x, 
+      # both have exactly the same meaning
+
+  # in other expressions in which the result of the increment or decrement 
+    # operation is evaluated, 
+    # they may have an important difference in their meaning
+
+  # the increase operator is used as a prefix (++x) of the value
+    # the expression evaluates to the final value of x
+
+  # a suffix (x++), 
+    # expression evaluates to the value that x had before being increased.
+
+  # e.g. x = 3;
+        #y = ++x;
+        # // x contains 4, y contains 4
+
+      # x = 3;
+        # y = x++;
+        # // x contains 4, y contains 3
+
+# In Example 1, the value assigned to y is the value of x after being increased. 
+  # While in Example 2, it is the value x had before being increased.
 
 
 
