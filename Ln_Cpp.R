@@ -381,6 +381,97 @@ sourceCpp("compound_operator.cpp")
 
 
 
+#=====================================
+# Relational and comparison operators
+#=====================================
+
+# Two expressions can be compared using relational and equality operators
+# The result of such an operation is either true or false (i.e., a Boolean value)
+  # ==	Equal to
+  # !=	Not equal to
+  # <	Less than
+  # >	Greater than
+  # <=	Less than or equal to
+  # >=	Greater than or equal to
+
+
+#====================
+# Logical operators 
+#====================
+
+# ! returns the opposite Boolean value of evaluating its operand
+# && corresponds to the Boolean logical operation AND,
+  # yields true if both its operands are true, and false otherwise. 
+
+# && OPERATOR (and)
+  # a	   b	 a && b
+  #true	true	true
+  #true	false	false
+  #false	true	false
+  #false	false	false
+
+# || corresponds to the Boolean logical operation OR
+  # yields true if either of its operands is true, 
+  # thus being false only when both operands are false. 
+
+# || OPERATOR (or)
+    #  a	 b	  a || b
+    # true	true	true
+    # true	false	true
+    # false	true	true
+    # false	false	false
+
+# short-circuit evaluation:
+  # &&: if the left side operand is false, the combined result is false
+          # then right side operand never evaluated
+  # ||: if the right side operand is ture, the combined result is true
+          # then right side operand never evaluated
+
+
+# e.g. if ( (i<10) && (++i<n) ) { /*...*/ }  
+    # if the left side is false, then the right side is never evaluated
+
+
+#===================================
+# Conditional ternary operator ( ? )
+#===================================
+
+# The conditional operator evaluates an expression, 
+  # returning one value if that expression evaluates to true, 
+  # and a different one if the expression evaluates as false. 
+
+# condition ? result1 : result2
+
+# If condition is true, the entire expression evaluates to result1, 
+  # and otherwise to result2.
+
+  # e.g. 5>3 ? a : b  
+
+library("Rcpp")
+sourceCpp("conditional_operand.cpp")
+
+
+#=====================
+# Comma operator ( , )
+#=====================
+
+# a = (b=3, b+2);
+
+  # 1st assign b = 3, then b+2 evaluate, then assign 3+2 to a;
+
+# 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
