@@ -459,7 +459,77 @@ sourceCpp("conditional_operand.cpp")
 
   # 1st assign b = 3, then b+2 evaluate, then assign 3+2 to a;
 
-# 
+
+#=========================================
+# Bitwise operators ( &, |, ^, ~, <<, >> )
+#=========================================
+
+# Bitwise operators modify variables considering 
+  # the bit patterns that represent the values they store.
+
+# operator	asm equivalent	description
+#&	AND	Bitwise AND
+# |	OR	Bitwise inclusive OR
+#^	XOR	Bitwise exclusive OR
+#~	NOT	Unary complement (bit inversion)
+#<<	SHL	Shift bits left
+#>>	SHR	Shift bits right
+
+
+#================================
+# Explicit type casting operator
+#================================
+# Type casting operators allow to convert a value of a given type 
+  # to another type
+# several ways to do this in C++. 
+#  simplest one:
+  #  precede the expression to be converted by the new type enclosed between parentheses (()):
+
+      # 
+      #int i;
+      #float f = 3.14;
+      #i = (int) f;
+
+
+# alternatively
+  # the functional notation preceding the expression to be 
+  # converted by the type and enclosing the expression between
+  # parentheses:
+    # i = int(f);
+
+
+#========
+# sizeof
+#========
+
+# his operator accepts one parameter, which can be either a type or a variable, 
+  # and returns the size in bytes of that type or object:
+
+# x = sizeof (char);
+  # x is assigned the value 1, 
+  # because char is a type with a size of one byte
+
+
+#=======
+# Others
+#=======
+# like the ones referring to pointers 
+  # or the specifics for object-oriented programming.
+
+#=========================
+# Precedence of operators
+#=========================
+
+# x = 5 + (7 % 2);    // x = 6 (same as without parenthesis)
+# x = (5 + 7) % 2;    // x = 0 
+
+# When an expression has two operators with the same precedence level, 
+  # grouping determines which one is evaluated first: either left-to-right or right-to-left.
+
+# Enclosing all sub-statements in parentheses improves code readability.
+
+
+
 
 
 
