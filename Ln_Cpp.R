@@ -529,42 +529,206 @@ sourceCpp("conditional_operand.cpp")
 # Enclosing all sub-statements in parentheses improves code readability.
 
 
+#====================
+# Basic Input/Output
+#====================
+
+# standard library provides many additional ways to interact 
+  # with the user via its input/output features.
+
+# C++ uses a convenient abstraction called streams to 
+  # perform input and output operations in sequential media 
+    # such as the screen, the keyboard or a file
+
+# A stream is an entity where a program can either 
+  # insert or extract characters to/from. 
+
+# All we need to know is that streams are a 
+  # source/destination of characters,
+  #  these characters are provided/accepted sequentially (i.e., one after another).
+
+# The standard library defines a handful of stream objects 
+  # that can be used to access what are considered the 
+    # standard sources and destinations of characters 
+      # by the environment where the program runs:
+
+
+# stream	description
+#   cin	  standard input stream
+#   cout	standard output stream
+#   cerr	standard error (output) stream
+#   clog	standard logging (output) stream
+
+
+#-----------------------
+# Standard output (cout)
+#-----------------------
+
+# The standard output by default is the screen, 
+  # and the C++ stream object defined to access it is cout.
+
+# For formatted output operations,
+  # cout is used together with the insertion operator, which is written as <<
+
+# cout << "Output sentence"; // prints Output sentence on screen
+# cout << 120;               // prints number 120 on screen
+# cout << x;                 // prints the value of x on screen 
+
+# cout << "Hello";  // prints Hello string
+# cout << Hello;    // prints the content of variable Hello
+
+# Multiple insertion operations (<<) may be chained in a single statement:
+  # cout << "This " << " is a " << "single C++ statement";
+
+# Chaining insertions is especially useful to 
+  # mix literals and variables in a single statement:
+  # cout << "I am " << age << " years old and my zipcode is " << zipcode;
+
+
+# What cout does not do automatically is add line breaks at the end
+  # To insert a line break, 
+    # a new-line character shall be inserted at the exact position 
+      # the line should be broken.
+
+
+# cout << "First sentence.\n";
+# cout << "Second sentence.\nThird sentence.";
 
 
 
+#---------------------
+# Standard input (cin)
+#---------------------
+
+#  the standard input by default is the keyboard, 
+    # and the C++ stream object defined to access it is cin.
+
+# For formatted input operations, 
+  # cin is used together with the extraction operator, 
+    # which is written as >>
+
+# This operator is then followed by the variable 
+  # where the extracted data is stored
+
+# int age;  // declares a variable of type int called age
+# cin >> age; //extracts from cin a value to be stored in age.
+  
+# This operation makes the program wait for input from cin
+# this means that the program will wait for the user 
+  # to enter some sequence with the keyboard.
+
+# note that the characters introduced using the keyboard are only 
+  # transmitted to the program when the ENTER (or RETURN) key 
+    # is pressed. 
+
+# Once the statement with the extraction operation on cin is reached, 
+# the program will wait for as long as needed until some input 
+  # is introduced.
+
+# The extraction operation on cin uses the type of the variable 
+  # after the >> operator to determine how it interprets the 
+    # characters read from the input; if it is an integer, 
+      # the format expected is a series of digits, 
+        # if a string a sequence of characters
 
 
+install.packages("Rcpp")
+library(Rcpp)
+
+sourceCpp("cin_cout_example.cpp")
+812
+
+#  this method also has a big drawback
+  # user enters something else that cannot be interpreted as an integer
+  # the extraction operation fails
+
+#  this, by default, lets the program continue without setting a value for variable i, producing undetermined results if the value of i is used later.
+#  very poor program behavior
+
+# Most programs are expected to behave in an expected manner no matter 
+  # what the user types, handling invalid values appropriately. 
 
 
+# Only very simple programs should rely on values 
+  # extracted directly from cin without further checking
+  # how stringstreams can be used to have better control over user input.
+
+# Extractions on cin can also be chained to request more than one datum in a single statement:
+  # cin >> a >> b;
+  # This is equivalent to:
+    # cin >> a;
+    # cin >> b;
+
+# In both cases, the user is expected to introduce two values,
+  # one for variable a, and another for variable b
+
+# Any kind of space is used to separate two consecutive input 
+  # operations; 
+  # this may either be a space, a tab, or a new-line character.
 
 
+#-----------------
+# cin and strings
+#-----------------
+
+# The extraction operator can be used on cin to get 
+  # strings of characters in the same way as with 
+    # fundamental data types:
 
 
+  # string mystring;
+  # cin >> mystring;
 
 
+# cin extraction always considers spaces 
+  # (whitespaces, tabs, new-line...) 
+    # as terminating the value being extracted, 
+      # and thus extracting a string means 
+        # to always extract a single word, 
+          # not a phrase or an entire sentence.
 
 
+# To get an entire line from cin,
+  # there exists a function, called getline, 
+    # that takes the stream (cin) as first argument,
+      # and the string variable as second.
+
+# should always use getline to get input in your console 
+  # programs instead of extracting from cin.
+
+library(Rcpp)
+sourceCpp("cin_string_getline.cpp")
 
 
+#--------------
+# stringstream
+#--------------
+
+# The standard header <sstream> defines a type called 
+  # stringstream that allows a string to be treated as 
+  # a stream, and thus allowing extraction or insertion 
+  # operations from/to strings in the same way as 
+  # they are performed on cin and cout.
+
+  # most useful to convert strings to numerical values and vice versa
+
+# string mystr ("1024");
+# int myint;
+# stringstream(mystr) >> myint;
+
+library(Rcpp)
+sourceCpp("stringstream.cpp")
 
 
+# acquire numeric values from the standard input indirectly:
+  # Instead of extracting numeric values directly from cin, 
+  # we get lines from it into a string object (mystr), 
+  # and then we extract the values from this string into 
+  # the variables price and quantity
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  # Once these are numerical values, 
+  # arithmetic operations can be performed on them, 
+  # such as multiplying them to obtain a total price.
 
 
 
