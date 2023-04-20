@@ -96,8 +96,49 @@ sourceCpp("do_while_echo_machine.cpp")
 
 
 
+#---------
+# for loop
+#---------
+
+# The for loop is designed to iterate a number of times
+# for (initialization; condition; increase) statement;
+  # this loop repeats statement while condition is true
+  #  it is especially useful to use counter variables as condition.
 
 
+library(Rcpp)
+sourceCpp("for_loop.cpp")
+
+  # The three fields in a for-loop are optional. 
+  # They can be left empty, but in all cases the semicolon signs between them are required. 
+
+  # for (;n<10;) is a loop without initialization or increase (equivalent to a while-loop);
+  # for (;n<10;++n) is a loop with increase, but no initialization 
+  # A loop with no condition is equivalent to a loop with true as condition (i.e., an infinite loop).
+
+
+  # execute more than a single expression as any of initialization, condition, or statement
+  # make use of the comma operator (,): 
+      # This operator is an expression separator, 
+      # and can separate multiple expressions where only one is generally expected
+
+
+#~~~~~~~~~~~~~~~~~~~~~~
+# Range-based for loop
+#~~~~~~~~~~~~~~~~~~~~~~
+
+# for ( declaration : range ) statement;
+# iterates over all the elements in range, 
+# where declaration declares some variable able to 
+  # take the value of an element in this range
+
+# Ranges are sequences of elements, 
+  # including arrays, containers, 
+  # and any other type supporting the functions begin and end; 
+
+    # e.g.  strings, which are sequences of characters.
+
+sourceCpp("range_for_loop.cpp")
 
 
 
