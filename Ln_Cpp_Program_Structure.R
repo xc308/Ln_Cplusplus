@@ -142,6 +142,97 @@ sourceCpp("range_for_loop.cpp")
 
 
 
+#-----------------
+# Jump statements
+#-----------------
+
+# performing jumps to specific locations.
+      # The break statement
+      # The continue statement
+      # The goto statement
+
+
+#~~~~~~~~~~~~~~~~~~~~
+# The break statement
+#~~~~~~~~~~~~~~~~~~~~
+
+# break leaves a loop, even if the condition for its end is not fulfilled.
+
+# It can be used to end an infinite loop, or to force it to end before its natural end.
+
+# let's stop the countdown before its natural end:
+  # 
+
+
+library(Rcpp)
+sourceCpp("break_count_down.cpp")
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~
+# The continue statement
+#~~~~~~~~~~~~~~~~~~~~~~~~
+
+# The continue statement causes the program to 
+  # skip the rest of the loop in the current iteration, 
+    # as if the end of the statement block had been reached, 
+      # causing it to jump to the start of the following iteration
+
+sourceCpp("continue_loop.cpp")
+
+
+#~~~~~~~~~~~~~~~~~~~~
+# The goto statement
+#~~~~~~~~~~~~~~~~~~~~
+
+# goto allows to make an absolute jump to another point in the program
+# This unconditional jump ignores nesting levels, 
+  # and does not cause any automatic stack unwinding.
+
+# it is a feature to use with care, 
+  # and preferably within the same block of statements, 
+    # especially in the presence of local variables
+
+
+# The destination point is identified by a label,
+  # which is then used as an argument for the goto statement.
+
+# A label is made of a valid identifier followed by a colon (:).
+  # e.g., mylable:
+        
+sourceCpp("goto.cpp")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
