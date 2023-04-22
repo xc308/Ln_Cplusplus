@@ -202,8 +202,37 @@ sourceCpp("continue_loop.cpp")
 sourceCpp("goto.cpp")
 
 
+#-------------------------------------
+# Another selection statement: switch
+#-------------------------------------
+
+# Its purpose is to check for a value among a number of possible constant expressions. 
+#  similar to concatenating if-else statements, but limited to constant expressions. 
+
+# syntax:
+  # switch(expression) {
+
+      # case constant1:
+        # group-statement-1;
+        # break;
 
 
+      # case constant2:
+        # group-statement-2;
+        # break;
+
+
+      #...
+
+
+      # default:
+        # default-group-statement;
+  #}
+
+# switch is limited to compare its evaluated expression 
+  # against labels that are constant expressions
+  # not possible to use variables as labels or ranges
+  # they are not valid C++ constant expressions.
 
 
 
