@@ -391,16 +391,76 @@ sourceCpp("assign_par_by_reference.cpp")
 
 
 
+#-------------------------------------------------
+# Efficiency considerations and const references
+#-------------------------------------------------
+
+# Calling a function with parameters taken by value 
+    # causes copies of the values to be made
+
+# This is a relatively inexpensive operation for fundamental types 
+    # such as int, 
+      # but if the parameter is of a large compound type, 
+        # it may result on certain overhead. 
 
 
+# example:
+  # string concatenate (string a, string b) {
+      #  return a+b;
+    # }
+
+# This function takes two strings as parameters (by value)
+  # returns the result of concatenating them
+
+# passing the arguments by value, 
+    # the function forces a and b to be copies of the arguments 
+      # passed to the function when it is called.
+
+#  if these are long strings, 
+    # it may mean copying large quantities of data just for the function call.
 
 
+# But this copy can be avoided altogether 
+  # if both parameters are made references:
+
+# string concatenate (string& a, string& b){
+  # return a+b;
+# }
+
+# Arguments by reference do not require a copy. 
+  # the function operates directly on (aliases of) the strings passed as arguments,
 
 
+# the version of concatenate taking references is more efficient 
+    # than the version taking values, 
+      # since it does not need to copy expensive-to-copy strings.
+
+# On the flip side, functions with reference parameters 
+  # are generally perceived as functions that modify the arguments passed, 
+
+# The solution is for the function to guarantee 
+  # that its reference parameters are not going to be modified 
+    # by this function. 
+
+# string concatenate (const string& a, const string& b){
+  # return a+b;
+#}
+
+#By ualifying them as const
+  #  the function is forbidden to modify the values of 
+      # neither a nor b, 
+        # but can actually access their values as references
+          # without having to make actual copies of the strings.
+
+# So, const references provide functionality similar to 
+    # passing arguments by value, 
+        # but with an increased efficiency for parameters of 
+          # large types.
 
 
-
-
+# Note though, that for most fundamental types, 
+  # there is no noticeable difference in efficiency, 
+    # and in some cases, const references may even be less efficient!
 
 
 
