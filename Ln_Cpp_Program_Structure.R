@@ -500,6 +500,20 @@ sourceCpp("assign_par_by_reference.cpp")
 # Therefore, this specifier merely indicates the compiler that inline is preferred for this function, although the compiler is free to not inline it, and optimize otherwise. 
 
 
+#------------
+# Default values in parameters
+#------------
+
+#  functions can also have optional parameters, 
+  # for which no arguments are required in the call,
+    # a function with three parameters may be called with only two.
+      #  For this, the function shall include a default value for its last parameter, 
+        # which is used by the function when called with fewer arguments.
+
+
+
+
+
 
 
 
