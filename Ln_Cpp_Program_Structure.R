@@ -595,18 +595,129 @@ sourceCpp("factorial_calculator.cpp")
 
 
 
+#=========================
+# Overloads and templates
+#=========================
+
+#-----------------------
+# Overloaded functions (same function name but different arg types)
+#-----------------------
+
+# In C++, two different functions can have the same name 
+  # if their parameters are different; 
+    # either because they have a different number of parameters, 
+    # or because any of their parameters are of a different type
+
+#  example:
+  # there are two functions called operate, 
+    # but one of them has two parameters of type int, 
+      # while the other has them of type double.
+
+# The compiler knows which one to call in each case 
+  # by examining the types passed as arguments 
+    # when the function is called.
+
+# If it is called with two int arguments,
+  # it calls to the function that has two int parameters,
+
+# if it is called with two doubles, 
+  # it calls the one with two doubles.
+
+# Two functions with the same name are generally expected to 
+  # have -at least- a similar behavior,
+
+# Two overloaded functions (i.e., two functions with the same name) 
+  # have entirely different definitions;
+
+# they are different functions, 
+  # that only happen to have the same name.
+
+# a function CANNOT be overloaded only by its return type
+
+# At least one of its parameters must have a different type.
+
+# C++ has the ability to define functions with generic types, 
+  # known as function templates. 
+
+# Defining a function template follows the same syntax as a regular function
+  # except that it is preceded by the template keyword 
+    # and a series of template parameters enclosed in angle-brackets <>
+
+# template <template-parameters> function-declaration
+  # The template parameters are a series of parameters separated by commas. 
+
+# These parameters can be generic template types 
+  # by specifying either the class or typename keyword
+    # followed by an identifier
+        # This identifier can then be used in the function declaration 
+          # as if it was a regular type
 
 
+# example: 
+  # a generic sum function could be defined as:
+    # template <class SomeType>  // template parameter class SomeType
+    # SomeType sum (SomeType a, SomeType b){
+        # return a+b;
+# }
 
 
+# no difference whether the generic type is specified with 
+  # keyword class or keyword typename in the template argument list 
 
 
+# declaring SomeType 
+  # (a generic type within the template parameters enclosed in angle-brackets) 
+    # allows SomeType to be used anywhere in the function definition
+
+#it can be used as the type for parameters, 
+  # as return type, or to declare new variables of this type
+
+  # it represents a generic type that will be determined 
+    # on the moment the template is instantiated.
+
+# Instantiating a template is applying the template 
+  # to create a function using particular types or values 
+    # for its template parameters.
+
+# this is done by calling the function template, 
+  # with the same syntax as calling a regular function, 
+    # but specifying the template arguments enclosed in angle brackets:
+
+# the sum function template defined above can be called with
+  # name <template-arguments> (function-arguments)
+  # sum <int> (10, 20)
+
+# The function sum<int> is just one of the possible instantiations of function template sum.
+# by using int as template argument in the call, 
+  # the compiler automatically instantiates a version of sum 
+    # where each occurrence of SomeType is replaced by int, 
 
 
+library(Rcpp)
+sourceCpp("template_fun.cpp")
 
 
+# Templates are a powerful and versatile feature. 
+  # They can have multiple template parameters, 
+    # and the function can still use regular non-templated types
 
 
+# template <class T, class U>
+# bool are_equal (T a, U b) {
+
+    # return (a == b);
+
+# }
+
+# are_equal(10, 10.0)
+# here is essentially are_equal <int, double> (10, 10.0)
+  # uses automatic template parameter deduction in the call to are_equal:
+
+# There is no ambiguity possible because numerical literals are always of a specific type:
+
+  # integer literals always produce values of type int, 
+  # and floating-point literals always produce values of type double. 
+  # Therefore 10 has always type int and 10.0 has always type double.
 
 
 
