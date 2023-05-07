@@ -721,6 +721,19 @@ sourceCpp("template_fun.cpp")
 
 
 
+#------------
+# Non-type template arguments
+#------------
+
+# template parameters can not only include types 
+  # introduced by class or typename,
+# but can also include expressions of a particular type:
+  # 
+
+library(Rcpp)
+sourceCpp("non-type_temp_arg.cpp")
+
+
 
 
 
