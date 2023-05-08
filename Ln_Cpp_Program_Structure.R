@@ -735,5 +735,62 @@ sourceCpp("non-type_temp_arg.cpp")
 
 
 
+#================
+# Name visibility
+#================
 
+#-------
+# scopes
+#-------
+
+# Named entities, such as variables, functions, and compound types 
+  # need to be declared before being used in C++. 
+
+
+# The point in the program where this declaration happens influences its visibility:
+
+# An entity declared outside any block has global scope
+  # meaning that its name is valid anywhere in the code.
+
+# While an entity declared within a block, 
+  # such as a function or a selective statement, has block scope, 
+    # and is only visible within the specific block 
+      # in which it is declared, but not outside it.
+
+# Variables with block scope are known as local variables.
+
+# a variable declared in the body of a function is a local variable 
+  # that extends until the end of the the function 
+    # (i.e., until the brace } that closes the function definition), 
+      # but not outside it:
+
+
+# In each scope, a name can only represent one entity.
+# there cannot be two variables with the same name in the same scope:
+
+# int some_fun () {
+    # int x; 
+    # x = 0;
+
+    # double x;  //  wrong: name x already used in this scope
+    # x = 0.0;
+
+#}
+
+
+# The visibility of an entity with block scope extends 
+  # until the end of the block, including inner blocks.
+
+# Nevertheless, an inner block, because it is a different block, 
+  # can re-utilize a name existing in an outer scope 
+    # to refer to a different entity
+
+# the name will refer to a different entity only 
+    # within the inner block
+
+# hiding the entity it names outside. 
+# While outside it, it will still refer to the original entity.
+
+library(Rcpp)
+sourceCpp("block_scope.cpp")
 
