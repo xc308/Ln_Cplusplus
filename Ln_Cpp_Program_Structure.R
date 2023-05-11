@@ -843,8 +843,68 @@ library(Rcpp)
 sourceCpp("namespace.cpp")
 
 
+#-------------
+# using
+#-----------
+
+# keyword using introduces a name into the current declarative region (
+#  (such as a block)
+# thus avoiding the need to qualify the name.
+# 
 
 
 
+#----------
+# The std namespace
+#----------
+
+# All the entities (variables, types, constants, and functions) 
+  # of the standard C++ library are declared within the std namespace.
+
+# using namespace std;
+  # This introduces direct visibility of all the names of 
+      # the std namespace into the code. 
+  # shorten the length of the examples
+
+  # but many programmers prefer to qualify each of the elements of 
+    # the standard library used in their programs.
+
+    # std::cout << "Hello world!";
+
+# It is mostly a matter of style preference, 
+  # although for projects mixing libraries, 
+    # explicit qualification tends to be preferred.
 
 
+#------------
+# Storage classes
+#------------
+
+# The storage for variables with global or 
+  # namespace scope is allocated for the entire duration of the program
+
+  # this is known as static storage, 
+
+# it contrasts with the storage for local variables 
+  # known as automatic storage
+
+# The storage for local variables is only available during the block 
+  # in which they are declared; 
+# after that, that same storage may be used for a local variable 
+  # of some other function, 
+
+
+# substantial difference between variables with static storage 
+  # and variables with automatic storage:
+
+# - Variables with static storage (such as global variables) 
+  # that are not explicitly initialized are 
+    # automatically initialized to zeroes.    # zero
+
+# - Variables with automatic storage (such as local variables) 
+  # that are not explicitly initialized are left uninitialized, 
+    # and thus have an undetermined value.   # undetermined value
+
+
+library(Rcpp)
+sourceCpp("static_automatic_storage.cpp")
