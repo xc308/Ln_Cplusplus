@@ -146,4 +146,120 @@ library(Rcpp)
 sourceCpp("array_example.cpp")
 
 
+#-------------------------
+# Multidimensional arrays
+#-------------------------
+
+# Multidimensional arrays can be described as "arrays of arrays"
+
+# bidimensional array can be imagined as a two-dimensional table 
+  # made of elements, all of them of a same uniform data type
+
+#       0    1    2    3     4      5
+# 0        
+# 1
+# 2
+
+# an array of 3 arrays, each of which is of element of 5 int type
+#  C++ syntax for this;
+  # int jimmy [3][5];
+
+
+# to reference the second element vertically and fourth horizontally in an expression
+  # jimmy[1][3]
+
+# Multidimensional arrays are not limited to two indices (i.e., two dimensions).
+# They can contain as many indices as needed
+  # the amount of memory needed for an array increases exponentially with each dimension.
+
+
+# declares an array with an element of type char for each second in a century.
+  # char centry [100][365][24][60][60]
+  # This amounts to more than 3 billion char! 
+  # this declaration would consume more than 3 gigabytes of memory!
+
+
+# multidimensional arrays are just an abstraction for programmers, 
+  # since the same results can be achieved with a simple array, 
+    # by multiplying its indices:
+
+  # int jimmy[3][5];
+  # int jimmy[15];
+
+# only difference that with multidimensional arrays, 
+  # the compiler automatically remembers the depth of each imaginary dimension.
+
+# the following two pieces of code produce the exact same result, 
+  # but one uses a bidimensional array while the other uses a simple array:
+
+
+# float Mark [2][3] = {{1, 3, 5}, {2, 4, 6}}
+  # Mark[1][1] = 4; the 2nd array the 2nd element
+
+  # 
+
+#-------------
+# Pointers
+#-----------
+# Another way to work with arrays is through the use of pointers.
+# The value of an object of type pointer is a memory location.
+
+# The address of a program component can
+  # be accessed in C/C++ using the address operator &.
+
+library(Rcpp)
+sourceCpp("address&.cpp")
+
+## Pointers are variables that allow us to work with addresses.
+  # A pointer takes a memory location address as its value 
+    # and provides the facility to access 
+      # (i.e., read from and write to) that location.
+
+# A pointer p to an object of type dataType is declared via the syntax:
+  # dataType* p;
+    # int* p; a pointer p to hold an address of a variable of type int
+      # double* p;  a pointer p to hold an address of a variable of type double
+
+# int* p; define a pointer to hold the address of a variable of type int
+# int i = 1; 
+# p = &i;
+  # the result is the pointer p holds the address of int i in memory
+
+
+
+#----------------------
+# Character sequences
+#----------------------
+
+# The string class a very powerful class to handle and manipulate strings of characters
+# strings are, in fact, sequences of characters,
+# we can represent them also as plain arrays of elements of a character type.
+
+# char foo [20];
+  # is an array that can store up to 20 elements of type char
+
+# this array has a capacity to store sequences of up to 20 characters
+  # But this capacity does not need to be fully exhausted: the array can also accommodate shorter sequences
+
+# By convention, the end of strings represented 
+  # in character sequences is signaled by a special character: 
+    # the null character, whose literal value can be written as '\0' 
+      # (backslash, zero).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
