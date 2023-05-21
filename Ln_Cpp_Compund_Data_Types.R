@@ -248,9 +248,69 @@ sourceCpp("address&.cpp")
 
 
 
+#-------------------------------------------------------
+# Initialization of null-terminated character sequences
+#-------------------------------------------------------
+
+# arrays of characters are ordinary arrays, they follow the same rules as these.
+# to initialize an array of characters with some predetermined sequence of characters,
+# we can do it just like any other array:
+
+# char myword[] = { 'H', 'e', 'l', 'l', 'o', '\0' };
+  # declares an array of 6 elements of type char initialized 
+    # with the characters that form the word "Hello" 
+      # plus a null character '\0' at the end.
+
+# arrays of character elements have another way to be initialized: 
+  # using string literals directly.
+
+
+# These are specified by enclosing the text between double quotes (")
+  # "the result is: "
+    # This is a string literal,
+
+# Sequences of characters enclosed in double-quotes (") 
+  # are literal constants.
+    # And their type is a null-terminated array of characters
+
+# This means that string literals always have a null character ('\0') 
+  # automatically appended at the end.
+
+#  the array of char elements called myword can be initialized with 
+  # a null-terminated sequence of characters by either one of these two statements:
+
+# char myword[] = { 'H', 'e', 'l', 'l', 'o', '\0' };
+# char myword[] = "Hello";
+
+# in both case, the array of char elements named myword decalared 
+  # with a size of 6 char type elements, 
+      # 5 characters and one null character \0 
+
+# the string literal append the null character automatically
+
+# are talking about initializing an array of characters when it is being declared, 
+# and not about assigning values to them later (once they have already been declared)
+
+# because string literals are regular arrays, 
+  # canNOT be assigned values.
+
+    # myword = "Bye";
+    # myword[] = "Bye";
+    # myword = { 'B', 'y', 'e', '\0' };
+
+# each of its elements can be assigned a value individually. 
+  # myword[0] = 'B';
+  #  myword[1] = 'y';
+  #  myword[2] = 'e';
+  #  myword[3] = '\0';
 
 
 
+
+
+
+one <- matrix(rep(1, 16), nrow = 4, ncol = 4)
+norm(one) # [1] 4
 
 
 
