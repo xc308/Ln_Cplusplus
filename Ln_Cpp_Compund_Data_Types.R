@@ -306,6 +306,34 @@ sourceCpp("address&.cpp")
 
 
 
+#------------------------------------------------
+# Strings and null-terminated character sequences
+#------------------------------------------------
+
+# string literals still always produce null-terminated character sequences,
+# and not string objects.
+
+
+# In the standard library, both representations for strings 
+  # most functions requiring strings are overloaded to support both.
+
+# cin and cout support null-terminated sequences directly, 
+# allowing them to be directly extracted from cin or inserted into cout, 
+# just like strings
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
