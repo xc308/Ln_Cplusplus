@@ -323,6 +323,80 @@ sourceCpp("address&.cpp")
 
 
 
+#==============
+# Pointers
+#=============
+
+# variables have been explained as locations in the 
+  # computer's memory which can be accessed by their identifier 
+    # (their name)
+
+#  the program does not need to care about the physical address of the data in memory;
+  # it simply uses the identifier
+
+
+# a C++ program, the memory of a computer is like a succession of memory cells,
+# each one byte in size, and each with a unique address.
+
+# These single-byte memory cells are ordered in a way that 
+  # allows data representations larger than one byte 
+    # to occupy memory cells that have consecutive addresses.
+
+# This way, each cell can be easily located in the memory by means of its unique address.
+# memory cell with the address 1776 always follows immediately after
+  # the cell with address 1775 and precedes the one with 1777, 
+    # and is exactly one thousand cells after 776 and 
+      # exactly one thousand cells before 2776.
+
+
+# When a variable is declared, the memory needed to store its value 
+  # is assigned a specific location in memory (its memory address). 
+
+
+# C++ programs do not actively decide the exact memory addresses where its variables are stored.
+# at task is left to the environment where the program is run
+# an operating system that decides the particular memory locations on runtime
+
+# it may be useful for a program to be able to obtain the address
+# of a variable during runtime in order to access data cells 
+# that are at a certain position relative to it.
+
+
+#------------------------
+# Address-of operator (&)
+#------------------------
+
+# the address of a variable can be obtained by preceding the name of
+  # a variable with an ampersand sign (&), 
+    # known as address-of operator.
+
+# foo= &myvar;
+  # assign the address of var myvar to foo
+
+  # by preceding the name of the variable myvar with the 
+    # address-of operator (&), we are no longer assigning 
+      # the content of the variable itself to foo, but its address
+
+
+# the actual address of a variable in memory cannot be known before runtime, 
+
+
+# The variable that stores the address of another variable, 
+  # is called a pointer. 
+
+# Pointers are a very powerful feature of the language 
+  # that has many uses in lower level programming.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
