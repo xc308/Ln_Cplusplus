@@ -389,10 +389,36 @@ sourceCpp("address&.cpp")
 
 
 
+#-------------------------
+# Dereference operator (*)
+#-------------------------
 
+# a variable which stores the address of another variable is called a pointer.
+# "point to" the variable whose address they store
 
+# interesting property of pointers is that they can be used 
+  # to access the variable they point to directly
 
+# done by preceding the pointer name with the dereference operator (*).
 
+# can be read as "value pointed to by".
+  # baz = *foo;
+
+  # read as the value pointed to by foo is assigned to baz
+  #  actually assign the value 25 to baz, 
+    # since foo is 1776, 
+    # and the value pointed to by 1776 would be 25.
+
+# foo refers to the value 1776, 
+# *foo refers to the value stored at the address 1776, which is 25
+
+# & is the address-of operator, read as "address of"
+# * is the dereference operator, andread as "value pointed to by
+
+# myvar == 25
+# &myvar == 1776
+# foo == 1776
+# *foo == 25
 
 
 
