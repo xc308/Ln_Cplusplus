@@ -422,18 +422,60 @@ sourceCpp("address&.cpp")
 
 
 
+#-------------------
+# Declaring pointers
+#-------------------
+
+# a pointer has different properties when it points to a char 
+    # than when it points to an int or a float
+
+# Once dereferenced, the type needs to be known.
+
+# the declaration of a pointer needs to include the data type 
+  # the pointer is going to point to.
 
 
+# the declaration of pointers follows this syntax:
+  # type * name;
+
+  # type is the data type pointed to by the pointer
+  # This type is not the type of the pointer itself, 
+  # but the type of the data the pointer points to
+
+# int * number; 
+# char * character;
+# double * decimals;
+
+# pointers are likely going to occupy the same amount of space in memory
+# the data to which they point to do not occupy the same amount of 
+  # space nor are of the same type: 
+    # the first one points to an int, 
+    # the second one to a char, 
+    # and the last one to a double.
+
+# although these three example variables are all of them pointers, 
+  # they actually have different types: int*, char*, and double* 
+    # respectively, depending on the type they point to.
+
+# asterisk (*) used when declaring a pointer only means that it is a pointer
+# should not be confused with the dereference operator 
 
 
+library(Rcpp)
+sourceCpp("mypointer_declare.cpp")
 
+# to specify two pointers on the fly"
+  # int * p1, * p2;
 
+# differenciate the 
+  # int * p1, p2;
 
+# the 1st is pointer with data type it point to being int
+# the 2nd is an int number p2
+# put one asterisk per pointer is enough for most pointer users 
+  # interested in declaring multiple pointers per statement.
 
-
-
-
-
+# or even better: use a different statement for each variable.
 
 
 
