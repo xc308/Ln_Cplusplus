@@ -478,6 +478,54 @@ sourceCpp("mypointer_declare.cpp")
 # or even better: use a different statement for each variable.
 
 
+#---------------------
+# Pointers and arrays
+#---------------------
+
+# concept of arrays is related to that of pointers
+# arrays work very much like pointers to their first elements, 
+# and,an array can always be implicitly converted to the pointer of the proper type.
+
+# int myarray [20];
+# int * mypointer;
+# mypointer = myarray;
+
+# mypointer and myarray would be equivalent and would have very similar properties.
+# he main difference being that mypointer can be assigned a different address, 
+# whereas myarray can never be assigned anything, 
+# and will always represent the same block of 20 elements of type int.
+
+# the following assignment would not be valid:
+# myarray = mypointer;
+    # a[5] = 0;       // a [offset of 5] = 0
+    # *(a+5) = 0;     // pointed to by (a+5) = 0  
+
+# These two expressions are equivalent and valid
+
+
+#------------------------
+# Pointer initialization
+#------------------------
+
+# Pointers can be initialized to point to specific locations at the very moment they are defined:
+  # int myvar;
+  # int * mypointer (declare a pointer) = &myvar (get the location of myvar)
+
+# the same as:
+  # int myvar; 
+  # int * mypointer; 
+  # mypointer = &myvar; // initialize the pointer with address 
+
+
+# differentiate:
+  # int myvar;
+  # int * myptr;
+  # *myptr = &myvar;
+
+
+
+
+
 
 one <- matrix(rep(1, 16), nrow = 4, ncol = 4)
 norm(one) # [1] 4
