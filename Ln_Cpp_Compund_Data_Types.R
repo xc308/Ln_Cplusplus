@@ -523,6 +523,132 @@ sourceCpp("mypointer_declare.cpp")
   # *myptr = &myvar;
 
 
+#---------------------
+# Pointer arithmetics
+#---------------------
+
+# only addition and subtraction operations are allowed
+# both addition and subtraction have a slightly different behavior with pointers
+# according to the size of the data type to which they point.
+
+# data types have different sizes
+  # char always has a size of 1 byte, 
+  # short is generally larger than that, 
+  # int and long are even larger; 
+  # the exact size of these being dependent on the system. 
+
+# we define three pointers in this compiler:
+
+  # char *mychar; 
+  # short *myshort;
+  # long *mylong;
+
+# if they point to the memory locations 1000, 2000, and 3000, 
+  # then 
+    # ++mychar; // point to 1001
+    # ++myshort; // point to 2002
+    # ++mylong; // point to 3004
+
+# even though they have each been incremented only once.
+
+  # Reason: when adding one to the pointer, 
+    # the pointer must point to the next element of the same type
+      # accounting the size of the type in bytes of the previous element
+
+  # mychar is size 1
+    # next pointer = 1000 + 1
+
+  # myshort is size 2
+    # next pointer = 2000 + 2
+
+  # mylong is size 4
+    # next pointer = 3000 + 4
+
+
+# *p++
+  # the same as *(p++)
+  # to increase the value of p, but ++ is used as postfix,
+    # the whole expression is evaluated as the value pointed originally by the pointer 
+
+# four possible combinations of the dereference operator:
+  # *p++ // same as *(p++): increment pointer, dereference unincremented address
+  # *++p // same as *(++p):increment pointer, deref increamented address
+  # ++*p // same as ++(*p): deref the pointer, increament the value it points to
+  # (*p)++ // deref the pointer, post-increament the value it points to
+
+
+# ++ has a higher precedence than *, both p and q are incremented
+  # but both increment operators (++) are used as postfix and not prefix,
+  # the value assigned to *p is *q 
+  # before both p and q are incremented
+  # and then both are incremented.
+
+# be roughly equivalent to
+  # *p = *q;
+  # ++p;
+  # ++q;
+
+
+#--------------------
+# Pointers and const
+#--------------------
+
+# declare pointers that can access the pointed value to read it, 
+  # but not to modify it.
+
+# it is enough with qualifying the type as const (pointed to by the pointer)
+
+  # int x; 
+  # int y = 10; 
+  # const int * p = &y;
+  # x = *p;
+  # *p = x; // error: pointer p is const type the value they point to cannot modify 
+   #         // # but the pointer itself can still be increament, assign different address
+
+# One of the use of pointers to const elements is as function parameters
+  # a function that takes a pointer to non-const as parameter can modify the value passed as argument, 
+  # while a function that takes a pointer to const as parameter cannot.
+
+
+library(Rcpp)
+sourceCpp("pointers_as_arg_fun.cpp")
+
+
+# the const qualifier can either precede or follow the pointed type, 
+  # with the exact same meaning:
+    # const int * p2a = &x;  //      non-const pointer to const int
+    # int const * p2b = &x;  // also non-const pointer to const int
+
+
+#---------
+# Pointers and string literals
+#---------
+
+# string literals are arrays containing null-terminated character sequences
+#  string literals have been used to be directly inserted into cout, 
+  # to initialize strings and to initialize arrays of characters.
+
+# can also be accessed directly. 
+
+# String literals are arrays of the proper array type to contain 
+  # all its characters plus the terminating null-character,
+  # with each of the elements being of type const char 
+
+# const char * foo = "hello";
+# This declares an array with the literal representation for "hello",
+ # then a pointer to its first element is assigned to foo. 
+
+# The pointer foo points to a sequence of characters
+
+# because pointers and arrays behave essentially in the same way in expressions, 
+# foo can be used to access the characters in the same way arrays of 
+  # null-terminated character sequences are.
+
+# *(foo+4)
+# foo[4]
+
+
+
 
 
 
