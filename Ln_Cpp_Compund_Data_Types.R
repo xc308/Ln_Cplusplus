@@ -648,7 +648,30 @@ sourceCpp("pointers_as_arg_fun.cpp")
 # foo[4]
 
 
+#-----------
+# Pointers to pointers
+#-----------
 
+# use of pointers that point to pointers, in its turn, point to data 
+# The syntax simply requires an asterisk (*) for each level of indirection 
+  # in the declaration of the pointer:
+
+  # char a; 
+  # char * b;
+  # char ** c; 
+  # a = "z";
+  # b = &a;
+  # c = &b;
+
+# a has adress 7728
+  # b contains 7728 at momery location 8804
+    # c contains 8804
+
+# variable c, which is a pointer to a pointer
+
+  # c is of type char ** and value 8804
+  # *c is of type char * and value 7728
+  # **c is of type char and value "z"
 
 
 
