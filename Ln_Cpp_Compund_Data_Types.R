@@ -674,6 +674,28 @@ sourceCpp("pointers_as_arg_fun.cpp")
   # **c is of type char and value "z"
 
 
+#-------------
+# void pointers
+#-------------
+# void: empty, null
+
+#  void type of pointer is a special type of pointer
+#  void represents the absence of type
+# void pointers are pointers that point to a value that has no type 
+  # also an undetermined length and undetermined dereferencing properties)
+
+  # gives void pointers a great flexibility, by being able to point to any data type
+  # from an integer value or a float to a string of characters. 
+
+  # they have a great limitation: 
+    # the data pointed to by them cannot be directly dereferenced 
+    # any address in a void pointer needs to be transformed into some other pointer type that points to a concrete data type before being dereferenced.
+
+# One of its possible uses may be to pass generic parameters to a function.
+
+
+
+
 
 
 one <- matrix(rep(1, 16), nrow = 4, ncol = 4)
