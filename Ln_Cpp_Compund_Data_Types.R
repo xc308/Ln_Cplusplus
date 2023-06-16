@@ -694,6 +694,70 @@ sourceCpp("pointers_as_arg_fun.cpp")
 # One of its possible uses may be to pass generic parameters to a function.
 
 
+#---------
+# Invalid pointers and null pointers
+#---------
+
+# pointers are meant to point to valid addresses, 
+  # such as the address of a variable or 
+  # the address of an element in an array
+
+# but pointers can actually point to any address, 
+  # including addresses that do not refer to any valid element.
+
+# Typical examples of this are uninitialized pointers 
+  # and pointers to nonexistent elements of an array:
+
+# int * p;   // uninitialized p
+# int myarray[10];
+# int * q = myarray+20;  // element out of bounds 
+
+# Neither p nor q point to addresses known to contain a value, 
+  # but none of the above statements causes an error.
+
+# pointers are allowed to take any address value, 
+  # no matter whether there actually is something at that address or not.
+
+# What can cause an error is to dereference such a pointer 
+  # (i.e., actually accessing the value they point to). 
+
+# Accessing such a pointer causes undefined behavior, 
+  # ranging from an error during runtime to accessing some random value.
+
+# But, sometimes, a pointer really needs to explicitly point to nowhere, 
+  # and not just an invalid address
+
+# there exists a special value that any pointer type can take: 
+  # the null pointer value
+
+# This value can be expressed in C++ in two ways: 
+  # either with an integer value of zero, 
+  # or with the nullptr keyword:
+
+# int * p = 0;
+# int * q = nullptr;
+
+# both p and q are null pointers, 
+  # meaning that they explicitly point to nowhere, 
+    # and they both actually compare equal: 
+      # all null pointers compare equal to other null pointers. 
+
+# constant NULL be used in older code to refer to the null pointer value:
+  # int * r = NULL; // older code
+
+
+# null pointer vs void pointer
+  # null pointer: a value that any pointer can take and 
+              # to represent that it is pointing to "nowhere",
+  # void pointer: point to somewhere but without specific type predetermined
+              # the type of data it points to is empty
+
+
+# null pointer: the value repsents that the pointer points to nowhere
+# void pointer: the type of data it points to is empty not predetermined;
+                # needs to be transformed to a concrete data type
+                  # before it is dereference. 
+
 
 
 
