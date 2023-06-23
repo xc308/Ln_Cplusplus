@@ -772,6 +772,44 @@ sourceCpp("pointers_as_arg_fun.cpp")
 
 
 
+#================
+# Dynamic memory
+#================
+
+
+# two standard mechanisms to check 
+  # if the allocation was successful:
+
+# One is by handling exceptions
+# an exception of type bad_alloc is thrown when the allocation fails.
+
+# is the method used by default by new, and is the one used in a declaration like:
+
+# foo = new int [5];  // if allocation fails, an exception is thrown  
+
+# The other method is known as nothrow:
+  # the pointer returned by new is a null pointer, and the program continues its execution normally.
+
+# pecified by using a special object called nothrow,
+  # foo = new (nothrow) int [5];
+
+# if the allocation of this block of memory fails, the failure can be detected by checking if foo is a null pointer:
+  # int * foo;
+  # foo = new (nothrow) int [5];
+  # if (foo == nullptr) {
+    # // error assigning memory. Take measures.
+#}
+
+# This nothrow method is likely to produce less 
+  # efficient code than exceptions, 
+    # since it implies explicitly checking 
+      # the pointer value returned after each 
+        # and every allocation.
+
+# Therefore, the exception mechanism is generally preferred,
+# Still, most of the coming examples will use the nothrow mechanism due to its simplicity.
+
+
 
 one <- matrix(rep(1, 16), nrow = 4, ncol = 4)
 norm(one) # [1] 4
