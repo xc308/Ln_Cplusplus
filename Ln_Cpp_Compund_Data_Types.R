@@ -962,14 +962,18 @@ sourceCpp("delete_pointer.cpp")
 
   # string name;
   # double birthday;
-  # moive_t favourite movie;
+  # moive_t favourite_movie;
 #} Mark, Maria, ZG;
 
 # friend_t * pfriends = &Mark; // get Mark's address, assign it to 
   # a pointer whose name is pfriends and whose type is friend_t
 
+# pfriends -> favourite_movie
+  # equivalent to (*pfriends).favourite_movie
 
-
+# Mark.favourite_moive.title;
+# Maria.favourite_moive.year;
+# GZ.birthday;
 
 
 
