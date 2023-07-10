@@ -815,6 +815,161 @@ one <- matrix(rep(1, 16), nrow = 4, ncol = 4)
 norm(one) # [1] 4
 
 
+#================================
+# Operators delete and delete[]
+#================================
+
+# memory allocated dynamically is only needed during specific periods of time within a program;
+# once it is no longer needed, it can be freed so that the memory becomes available again for other requests of dynamic memory. 
+# This is the purpose of operator delete, whose syntax is:
+  # delete pointer; // releases the memory of a single element allocated using new, 
+  # delete[] pointer;//releases the memory allocated for arrays of elements using new and a size in brackets ([]).
+
+
+# The value passed as argument to delete shall be 
+  # either a pointer to a memory block previously allocated with new,
+  # or a null pointer (a null pointer, delete produces no effect).
+
+
+library("Rcpp")
+sourceCpp("delete_pointer.cpp")
+
+
+#----------------
+# Data structure
+#----------------
+# A data structure is a group of data elements 
+  # grouped together under one name.
+
+# These data elements, known as members, can have different types and different lengths. 
+# Data structures can be declared in C++ using the following syntax:
+  # struct type_name {
+      # member_type1 member_name1;
+      # member_type2 member_name2;
+      # member_type3 member_name3;
+      # ...
+      #
+  #} object_names;
+
+# type_name: is a name for the structure type
+# object_name: can be a set of valid identifiers for objects that have the type of this structure.
+# within braces {}, there is a list with the data members, 
+  # each one is specified with a type and a valid identifier as its name
+
+# struct product { //declares a structure type, called product, and defines it having two members: weight and price,
+    # int weight;
+    # double price;
+#} ;
+
+# product apple // declare obj (variable) apple of type product
+# product banana melon //declare objs bana melon of type product
+
+
+# Right at the end of the struct definition, 
+  # and before the ending semicolon (;), 
+    # the optional field object_names can be used to directly 
+      # declare objects of the structure type. 
+
+# struct product {
+
+  # int weight;
+  # double price;
+#} apple, banana, melon; //the optional field object_names can be used to directly declare objects of the structure type. 
+
+# important to clearly differentiate between 
+  # what is the structure type name (product), 
+  # and what is an object of this type (apple, banana, and melon). 
+
+# Many objects (such as apple, banana, and melon) can be declared 
+  # from a single structure type (product).
+
+
+# Once the three objects of a determined structure type are declared 
+  # (apple, banana, and melon) its members can be accessed directly.
+
+  # The syntax for that is simply to insert a dot (.) between the object name and the member name.
+  # apple.weight
+  # apple.price
+  # banana.weight
+  # banana.price
+  # melon.weight
+  # melon.price
+
+
+# Each one of these has the data type corresponding to the member they refer to: 
+  # apple.weight, banana.weight, and melon.weight are of type int,
+  # while apple.price, banana.price, and melon.price are of type double.
+
+
+#=========================
+# Pointers to structures
+#=========================
+
+# structures can be pointed to by its own type of pointers:
+  # struct moive_t {
+
+    # string title;
+    # int year;
+#  } amovie; // amovie is an obj of type moive_t;
+
+# moive_t * pmoive; 
+  # //pmoive is the pointer pointing to the address of objs of type moive_t
+
+# So, 
+  # &amoive // get the address of obj of type movie_t 
+  # pmovie = &amoive //assign it to pmovie
+
+
+
+#--------------------
+# The arrow operator: ->
+#--------------------
+# The arrow operator (->) is a dereference operator 
+  # that is used exclusively with pointers to objects that have members. 
+
+# This operator serves to access the member of an object directly from its address. 
+# pmoive -> is equivalent to 
+  # (*pmoive).  is equivalent to amoive.its memebers 
+
+# pmovie->title is equivalent to (*pmovie).title 
+# pmovie -> year is equivalent to (*pmoive).year
+
+
+#---------------
+# differentiate
+#---------------
+
+# a.b  : obj a and its member b, evaluate the member b of obj a
+# a -> b: mber b of an obj pointed to by pointer a
+          # equivalent to (*a).b
+
+# *a.b : derefernce a the adress pointed to by a.b (mber b of obj a)
+        # equivalent to *(a.b)
+
+
+#-------------------
+# Nesting structures
+#-------------------
+
+# Structures can also be nested in such a way that an element of a structure is itself another structure:
+
+# struct moive_t {
+  # string title;
+  # int year;
+#}
+
+# struct friend_t {
+
+  # string name;
+  # double birthday;
+  # moive_t favourite movie;
+#} Mark, Maria, ZG;
+
+# friend_t * pfriends = &Mark; // get Mark's address, assign it to 
+  # a pointer whose name is pfriends and whose type is friend_t
+
+
+
 
 
 
