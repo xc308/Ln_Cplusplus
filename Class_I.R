@@ -82,12 +82,46 @@
 
 
 # This constructor function is declared just like a regular member function, 
-# with a name that matches the class name and without any return type; not even void.
+# with a name that matches the class name and without any return type; 
+# not even void.
 
 # 
 
 library("Rcpp")
 
 sourceCpp("constructor.cpp")
+
+
+#--------------------------
+# Overloading constructors
+#--------------------------
+
+# a constructor can also be overloaded with different versions
+  # taking different parameters: with a different number of parameters 
+    # and/or parameters of different types
+
+
+# The compiler will automatically call the one whose parameters 
+  # match the arguments:
+
+#  the default constructor. 
+  # The default constructor is the constructor that takes no parameters,
+  # and it is special because it is called when an object is declared
+  # but is not initialized with any arguments.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
