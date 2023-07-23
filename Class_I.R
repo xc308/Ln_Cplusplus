@@ -111,6 +111,29 @@ sourceCpp("constructor.cpp")
 
 
 
+#-------------------------
+# Uniform initialization
+#-------------------------
+
+# 1. constructors with a single parameter can be called using 
+  # the variable initialization syntax (an equal sign followed by the argument):
+
+  #class_name object_name = initialization_value;
+
+
+# 2. uniform initialization
+  # essentially is the same as the functional form, but using braces ({}) 
+  # class_name object_name { value, value, value, ... }
+
+library(Rcpp)
+sourceCpp("Uniform_declaration.cpp")
+
+
+
+
+
+
+
 
 
 
