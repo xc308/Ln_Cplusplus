@@ -128,8 +128,20 @@ sourceCpp("constructor.cpp")
 library(Rcpp)
 sourceCpp("Uniform_declaration.cpp")
 
+# Adv:
+  # easy differentiation from functional form initialization Circle foo (10.0)
+  # which is easy to confused with function declaration Circle foo()
 
 
+#======================================
+# Member initialization in constructors
+#======================================
+
+# done by inserting, before the constructor's body, a colon (:) and a list of initializations for class members. 
+
+# Rectangle::Rectangle (int x, int y) { width=x; height=y; }
+# Rectangle::Rectangle (int x, int y) : width(x) { height=y; }
+# Rectangle::Rectangle (int x, int y) : width(x), height(y) { }
 
 
 
