@@ -144,10 +144,28 @@ sourceCpp("Uniform_declaration.cpp")
 # Rectangle::Rectangle (int x, int y) : width(x), height(y) { }
 
 
+#=====================
+# Pointers to classes
+#=====================
+# Objects can also be pointed to by pointers
+# Once declared, a class becomes a valid type, 
+#so it can be used as the type pointed to by a pointer
 
+# Rectangle * prect;
+  # is a pointer to an object of class Rectangle
+  
+# the members of an object can be accessed directly from a pointer
+  # by using the arrow operator (->), x -> y
+    # THE pointer x points to a member of an obj y
 
-
-
+# *x: dereference pointer x
+# &x: address of x
+# x.y: member y of an obj x
+# x -> y: a member y of obj pointed to by x
+# (*x).y: member y of obj pointed to by x; 
+# x[0]: the 1st obj pointed to by x
+# x[1]: the 2nd obj pointed to by x
+# x[n]: the n+1 obj pointed to by x
 
 
 
